@@ -1,17 +1,18 @@
-import { Product } from "../models/product.model";
+import { Product } from "../models/product.model.js";
+import { sequelize } from "../db.js";
 
 export async function getAllProducts() {
   return await Product.findAll({
-    attributes: ["id", "name", "tel", "email", "size", "type"],
+    attributes: ["id", "name", "phone", "email", "size", "type"],
   });
 }
 
-export async function createProduct(name, tel, email, size, type) {
+export async function createProduct(name, phone, email, size, type) {
   const transaction = await sequelize.transaction();
 
   try {
     const productRow = await Product.create(
-      { name, tel, email, size, type },
+      { name, phone, email, size, type },
       { transaction }
     );
 

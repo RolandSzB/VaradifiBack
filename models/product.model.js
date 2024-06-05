@@ -11,7 +11,7 @@ export const Product = sequelize.define(
         notEmpty: true,
       },
     },
-    tel: {
+    phone: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {

@@ -27,10 +27,10 @@ app.use(function (req, res, next) {
 });
 
 import productRoutes from "./routes/product.routes.js";
-import eventRoutes from "./routes/event.routes.js";
+//import eventRoutes from "./routes/event.routes.js";
 
 app.use("/products", productRoutes);
-app.use("/events", eventRoutes);
+//app.use("/events", eventRoutes);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);

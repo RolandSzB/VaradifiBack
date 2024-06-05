@@ -2,7 +2,7 @@ import {
   createProduct,
   getAllProducts,
   deleteOneProduct,
-} from "../services/product.services";
+} from "../services/product.services.js";
 
 export async function getProducts(req, res) {
   const dbProducts = await getAllProducts();
@@ -11,7 +11,7 @@ export async function getProducts(req, res) {
 
 export async function addNewProduct(req, res) {
   //LUAREA DATELOR
-  const { name, tel, email, size, type } = req.body;
+  const { name, phone, email, size, type } = req.body;
   //VERIFICARI
   if (!name) {
     throw new Error("Name is required");
@@ -29,7 +29,7 @@ export async function addNewProduct(req, res) {
     throw new Error("Type is required");
   }
   //LOGICA - SERVICE + REPOSITORY
-  const productId = await createProduct(name, tel, email, size, type);
+  const productId = await createProduct(name, phone, email, size, type);
   //RASPUNS
   res.send(JSON.stringify({ id: productId }));
 }

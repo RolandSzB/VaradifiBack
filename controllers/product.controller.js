@@ -16,7 +16,7 @@ export async function addNewProduct(req, res) {
   if (!name) {
     throw new Error("Name is required");
   }
-  if (!tel) {
+  if (!phone) {
     throw new Error("Telephone Number is required");
   }
   if (!email) {

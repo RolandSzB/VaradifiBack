@@ -26,8 +26,11 @@ app.use(function (req, res, next) {
   next();
 });
 
-import productRoutes from "./routes/productRoutes.js";
+import productRoutes from "./routes/product.routes.js";
+import eventRoutes from "./routes/event.routes.js";
+
 app.use("/products", productRoutes);
+app.use("/events", eventRoutes);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);

@@ -11,3 +11,8 @@
 
 #!.yarn/cache
 .pnp.*
+
+# Custom files to ignore
+compose.yaml
+db.js
+db-sync.js

@@ -8,7 +8,7 @@ const db = {
   options: {
     dialect: "mysql",
     timezone: "+00:00",
-    host: "mysql.task",
+    host: "mysql.varadifi",
     port: 3306,
     logging: function (str) {
       console.log(str);

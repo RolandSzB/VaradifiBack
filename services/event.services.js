@@ -1,3 +1,5 @@
+import { Description } from "../models/description.model.js";
+
 import { Event } from "../models/event.model.js";
 import { sequelize } from "../db.js";
 
@@ -37,13 +39,13 @@ export async function createEvent(
   return "error";
 }
 
-export async function deleteOneEvent(eventId) {
+export async function deleteOneEvent(id) {
   const transaction = await sequelize.transaction();
   try {
     await Event.destroy(
       {
         where: {
-          id: eventId,
+          id: id,
         },
       },
       { transaction }
@@ -52,4 +54,10 @@ export async function deleteOneEvent(eventId) {
   } catch (error) {
     await transaction.rollback();
   }
+}
+
+export async function editOneEvent(id, value) {
+  const eventRow = await Event.findByPk(id);
+  eventRow.dateNum = value;
+  await eventRow.save();
 }

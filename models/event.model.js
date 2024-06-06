@@ -1,6 +1,8 @@
 import { sequelize } from "../db.js";
 import { DataTypes } from "sequelize";
 
+import { Description } from "./description.model.js";
+
 export const Event = sequelize.define(
   "Event",
   {
@@ -48,8 +50,8 @@ export const Event = sequelize.define(
 );
 
 //Sterge fiecare direct, nu am nevoie de Description.delete, nici de tranzactie
-// Task.hasOne(Description, { onDelete: "CASCADE" });
-// Description.belongsTo(Task);
+Event.hasOne(Description, { onDelete: "CASCADE" });
+Description.belongsTo(Event);
 
 //Nu sterge daca exista legatura, trebuie sa sterg manual Description
 // Task.hasOne(Description, { onDelete: "RESTRICT" });

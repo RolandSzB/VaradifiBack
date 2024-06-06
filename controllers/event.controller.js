@@ -29,7 +29,7 @@ export async function addNewEvent(req, res) {
   //   throw new Error("Period is required");
   // }
   //LOGICA - SERVICE + REPOSITORY
-  const eventId = await createEvent(
+  const id = await createEvent(
     dateNum,
     dateMonth,
     eventTitle,
@@ -37,17 +37,17 @@ export async function addNewEvent(req, res) {
     eventPeriod
   );
   //RASPUNS
-  res.send(JSON.stringify({ id: eventId }));
+  res.send(JSON.stringify({ id: id }));
 }
 
 export async function deleteEvent(req, res) {
-  const { eventId } = req.body;
+  const { id } = req.body;
 
-  if (!eventId) {
+  if (!id) {
     throw new Error("Product id is required");
   }
 
-  await deleteOneEvent(eventId);
+  await deleteOneEvent(id);
 
   res.send("Deleted");
 }

@@ -1,0 +1,10 @@
+@mainUrl = http://localhost:3000
+###
+#
+
+POST http://localhost:3000/events
+Content-Type: application/json
+
+{
+    "dateNum": 5, "dateMonth":"JAN" , "eventTitle":"Nyari Ifi", "eventDate":"2024-06-16", "eventPeriod":"19:00-21:00", "description": "Nu am descrption", "author":"Boss"
+}
